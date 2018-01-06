@@ -1,0 +1,112 @@
+﻿@model QLChatThai.Models.QLCTModel.Nhap
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Phiếu Nhập chất thải</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Số biên bản</label>
+                @Html.TextBoxFor(model => model.Sochungtu, new { @class="form-control"})
+                @Html.ValidationMessageFor(model=>model.Sochungtu)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Khách hàng</label>
+                @Html.TextBoxFor.DropDownList("Ma_KH", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model=>model.Ma_KH)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Nhập kho</label>
+                @Html.DropDownList("Makho",null,new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Makho)
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Ngày nhận</label>
+                @Html.TextBoxFor(model => model.ngaynhan,  new { @class = "form-control nn-date" })
+                @Html.ValidationMessageFor(model=>model.ngaynhan)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Ngày nhập</label>
+                @Html.TextBoxFor(model => model.ngaynhap,  new { @class = "form-control nn-date" })
+                @Html.ValidationMessageFor(model => model.ngaynhap)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Xe vận chuyển</label>
+                @Html.DropDownList("Soxe", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model=>model.Soxe)
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Nhân viên nhận</label>
+                @Html.DropDownList("manv", null, new {@class="form-control"})
+                @Html.ValidationMessageFor(model=>model.manv)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Nhân viên kinh doanh 1</label>
+                @Html.DropDownList("NV_KDMua1", null,"", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV_KDMua1)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Nhân viên kinh doanh 2</label>
+                @Html.DropDownList("NV_KDMua2", null,"", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV_KDMua2)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Nhân viên kinh doanh 3</label>
+                @Html.DropDownList("NV_KDMua3", null,"", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV_KDMua3)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Người giới thiệu 1</label>
+                @Html.TextBoxFor(model=>model.NV_Gioithieu1, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV_Gioithieu1)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Người giới thiệu 2</label>
+                @Html.TextBoxFor(model => model.NV_Gioithieu2, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV_Gioithieu2)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Người giới thiệu 3</label>
+                @Html.TextBoxFor(model => model.NV_Gioithieu3, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV_Gioithieu3)
+            </div>
+            <div class="form-group col-sm-8">
+                <label>Ghi chú</label>
+                @Html.TextAreaFor(model => model.Ghichu, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(model => model.Ghichu)
+            </div> 
+        </div>
+       
+            
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

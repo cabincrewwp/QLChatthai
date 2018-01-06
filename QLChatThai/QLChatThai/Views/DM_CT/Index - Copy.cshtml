@@ -1,0 +1,155 @@
+﻿@model IEnumerable<QLChatThai.Models.QLCTModel.DM_CT>
+<style type="text/css">
+    .webgrid-table {
+        font-family: Arial,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        width: auto;
+        display: table;
+        border-collapse: collapse;
+        border: solid 1px #C5C5C5;
+        background-color: white;
+    }
+
+        .webgrid-table th, td {
+            border: solid 1px #C5C5C5;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header, webgrid-header a {
+        background-color: aqua;
+        color: #ffffff;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: azure;
+        padding: 3px 7px 2px;
+    }
+
+    #gridContent th:nth-child(2), th:nth-child(4), td:nth-child(2), td:nth-child(4), td:nth-child(5), td:nth-child(5), td:nth-child(6), td:nth-child(6), td:nth-child(7), td:nth-child(7) {
+        width: 70px;
+    }
+    #gridContent td:nth-child(3) {
+        text-align:left;
+    }
+</style>
+
+@{
+    ViewBag.Title = "Index";
+    var grid = new WebGrid(source: Model, canSort: false, canPage: true, rowsPerPage: 20); 
+}
+<div class="container">
+    <h2>Danh mục chất thải</h2>
+    <p>
+        @Html.ActionLink("Thêm mới", "Create")
+    </p>
+    <div id="gridContent" style="font-family:Arial;padding:20px;">
+
+        @grid.GetHtml(tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+                   columns: grid.Columns(
+                    grid.Column(header: "STT", format: item => item.WebGrid.Rows.IndexOf(item) + 1),
+                    grid.Column(columnName: "Ma_CT", header: "Mã CT", style: "text-left text-width"),
+                    grid.Column(columnName: "Ten_CT", header: "Tên CT"),
+                    grid.Column(columnName: "Ma_EC", header: "Mã EC"),
+                    grid.Column(columnName: "Ma_BaselA", header: "Mã BaselA"),
+                    grid.Column(columnName: "Ma_BaselY", header: "Mã BaselY"),
+                    grid.Column(columnName: "TC_Nguyhai", header: "Tính chất nguy hại"),
+                    grid.Column(columnName: "Trangthai_tontai", header: "Trạng thái tồn tại"),
+                    grid.Column(columnName: "Nguong_nguyhai", header: "Ngưỡng nguy hai"),
+                    grid.Column(columnName: "tuxuly", header: "Tự xử lý", format: (item) => @Html.Raw("<input type='checkbox' " + ((item.tuxuly == true) ? "checked" : "") + " disabled='disabled' />"), style: "text-center checkbox-width"),
+                    grid.Column(header: "", canSort: false, style: "action",
+                        format: @<text>
+                        @Html.Raw("<a data-modal='' href='/DM_CT/Edit/" + item.idct + "'> <span class='glyphicon glyphicon-edit'> </span> </a>")
+                        @Html.Raw("<a data-modal='' href='/DM_CT/Delete/" + item.idct + "'> <span class='glyphicon glyphicon-trash'> </span> </a>")
+
+                        </text>))
+                                         );
+
+    </div>
+</div>
+
+
+
+@*<table class="table table-hover">
+    <tr>
+        <th>
+            <label>Mã chất thải</label>
+        </th>
+        <th>
+            <label>Tên chất thải</label>
+        </th>
+        <th>
+            <label>Mã EC</label>
+        </th>
+        <th>
+            <label>Mã Basel A</label>
+        </th>
+        <th>
+            <label> Mã Basel Y</label>
+        </th>
+        
+        <th>
+            <label>Tính chất nguy hại</label>
+        </th>
+        <th>
+            <label>Trạng thái tồn tại</label>
+        </th>
+        <th>
+            <label>Ngưỡng nguy hại</label>
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Ma_CT
+        </td>
+        <td align="left">
+            @item.Ten_CT
+        </td>
+        <td>
+            @item.Ma_EC
+        </td>
+        <td>
+            @item.Ma_BaselA
+        </td>
+        <td>
+            @item.Ma_BaselY
+        </td>
+        
+        <td>
+            @item.TC_Nguyhai
+        </td>
+        <td>
+            @item.Trangthai_tontai
+        </td>
+        <td>
+            @item.Nguong_nguyhai
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idct })
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.idct})
+        </td>
+    </tr>
+}
+
+</table>*@

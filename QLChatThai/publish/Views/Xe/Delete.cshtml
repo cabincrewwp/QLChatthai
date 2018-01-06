@@ -1,0 +1,39 @@
+﻿@model QLChatThai.Models.QLCTModel.DMXe
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa phương tiện vận tải</h2>
+
+<h3>Chắc chắn muốn xóa phương tiện vận tải có thông tin sau?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Số xe</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soxe)
+        </dd>
+
+        <dt>
+            <label>Mô tả</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

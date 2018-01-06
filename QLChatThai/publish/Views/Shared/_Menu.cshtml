@@ -1,0 +1,60 @@
+﻿<ul class="nav navbar-nav navbar-right">
+    
+        <li><a href="/Home/Index">Trang chủ</a></li>
+        <li><a href="/Home/About">Giới thiệu</a></li>
+        <li><a href="/Home/Contact">Liên hệ</a></li>
+    
+    
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                @if (XUser.IsAuthenticated == false)
+                {
+                    <li><a href="/Account/Login">Đăng nhập</a></li>
+                    <li><a href="/Account/Logoff">Đăng xuất</a></li>
+                }
+                @*else
+                {
+                    <li><a href="/Account/Logoff">Đăng xuất</a></li>
+                    <li><a href="/Account/Change">Đổi mật khẩu</a></li>
+                    <li><a href="/Account/Edit">Cập nhật hồ sơ</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/Order/List">Đơn hàng</a></li>
+                    <li><a href="/Order/Items">Hàng đã mua</a></li>
+                }*@
+            </ul>
+        </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Danh mục <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            @if (XUser.IsAuthenticated == false)
+            {
+                <li><a href="/DM_CT/Index">Danh mục chất thải</a></li>
+                <li><a href="/Khachhang/Index">Danh sách khách hàng</a></li>
+                <li><a href="/Xuly/Index">Danh mục xử lý</a></li>
+                <li><a href="/Nhanvien/Index">Danh sách nhân viên</a></li>
+                <li><a href="/Xe/Index">Danh sách phương tiện vận tải</a></li>
+            }
+        </ul>
+    </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quản lý chất thải <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                @if (XUser.IsAuthenticated == false)
+                {
+                    <li><a href="/Nhap/Index">Nhập</a></li>
+                    <li><a href="#">Xuất</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Báo cáo xử lý</a></li>
+                    <li><a href="#">Báo cáo tồn</a></li>
+                }
+
+            </ul>
+        </li>
+    
+</ul>
+@*<ul class="nav navbar-nav navbar-right">
+    <li><a href="">English</a></li>
+    <li><a href="">Tiếng Việt</a></li>
+</ul>*@

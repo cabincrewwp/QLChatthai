@@ -1,0 +1,80 @@
+﻿@model QLChatThai.Models.QLCTModel.DM_CT
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nhập mới danh mục chất thải</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Mã chất thải</label>
+                @Html.TextBoxFor(model => model.Ma_CT, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Ma_CT)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tên chất thải</label>
+                @Html.TextBoxFor(model => model.Ten_CT, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Ten_CT)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Mã EC</label>
+                @Html.TextBoxFor(model => model.Ma_EC, new { @class="form-control"})
+                @Html.ValidationMessageFor(model=>model.Ma_EC)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Mã Basel A</label>
+                @Html.TextBoxFor(model => model.Ma_BaselA, new { @class="form-control"})
+                @Html.ValidationMessageFor(modle=>modle.Ma_BaselA)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Mã Basel Y</label>
+                @Html.TextBoxFor(model => model.Ma_BaselY, new { @class = "form-control" })
+                @Html.ValidationMessageFor(modle => modle.Ma_BaselY)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tính chất nguy hại</label>
+                @Html.TextBoxFor(model => model.TC_Nguyhai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TC_Nguyhai)
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="form-group col-sm-4">
+                <label>Trạng thái tồn tại</label>
+                @Html.TextBoxFor(model => model.Trangthai_tontai, new { @class="form-control"})
+                @Html.ValidationMessageFor(model=>model.Trangthai_tontai)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Ngưỡng nguy hại</label>
+                @Html.TextBoxFor(model => model.Nguong_nguyhai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Nguong_nguyhai)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tự xử lý</label>
+                @Html.CheckBoxFor(model => model.tuxuly, new {@class="form-control"})                        
+                @Html.ValidationMessageFor(model => model.tuxuly)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

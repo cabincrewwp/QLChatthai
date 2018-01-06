@@ -1,0 +1,10 @@
+Format date dang dd/mm/yyyy trong MVC chu yeu la lam cho datepicker, phan dateFormat nhu mau 
+$(function () {
+                
+                $("input.nn-date").datepicker({                    
+                    beforeShow: function () {
+                        $(".ui-datepicker").css('font-size', 12)
+                    }
+                });
+                $("input.nn-date").datepicker("option", "dateFormat", "dd/mm/yy");
+            });

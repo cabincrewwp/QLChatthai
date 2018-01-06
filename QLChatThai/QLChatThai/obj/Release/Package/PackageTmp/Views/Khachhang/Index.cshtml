@@ -1,0 +1,126 @@
+﻿@model IEnumerable<QLChatThai.Models.QLCTModel.KhachhangDisp>
+<style type="text/css">
+    .webgrid-table {
+        font-family: Arial,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        width: auto;
+        display: table;
+        border-collapse: collapse;
+        border: solid 1px #C5C5C5;
+        background-color: white;
+    }
+
+        .webgrid-table th, td {
+            border: solid 1px #C5C5C5;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header, webgrid-header a {
+        background-color: aqua;
+        color: #ffffff;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: azure;
+        padding: 3px 7px 2px;
+    }
+</style>
+@{
+    ViewBag.Title = "Index";
+    var grid = new WebGrid(source: Model);
+}
+
+<h2>Quản lý khách hàng</h2>
+@Html.ValidationSummary()
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<div>
+    @grid.GetHtml(
+            tableStyle: "table table-responsive table-bordered",
+                    columns: grid.Columns(grid.Column(header: "STT", format: item => item.WebGrid.Rows.IndexOf(item) + 1),
+                    grid.Column(columnName: "Code_KH", header: "Mã khách hàng"),
+                    grid.Column(columnName: "Ten_KH", header: "Tên khách hàng"),
+                    grid.Column(columnName: "Diachi_VP", header: "Địa chỉ văn phòng"),
+                    grid.Column(columnName: "Ten_KH", header: "Địa chỉ cơ sở"),
+                    grid.Column(columnName: "Dienthoaivp", header: "Điện thoại văn phòng"),
+                    grid.Column(columnName: "Dienthoaics", header: "Điện thoại cơ sở"),
+                    grid.Column(columnName: "MS_QLCTNH", header: "Mã QLCTNH"),
+                    grid.Column(columnName: "Ten_tinh", header: "Tỉnh thành"),
+            grid.Column(header: "", canSort: false, style: "action",
+                format: @<text>
+                @Html.Raw("<a data-modal='' href='/Khachhang/Edit/" + item.Code_KH + "'> <span class='glyphicon glyphicon-edit'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/Khachhang/Delete/" + item.Code_KH + "'> <span class='glyphicon glyphicon-trash'> </span> </a>")
+                </text>)
+                                 ));
+</div>
+@*<table class="table table-hover">
+    <tr>
+        <th>
+            <label>Tên khách hàng</label>            
+        </th>
+        <th>
+            <label>Địa chỉ văn phòng</label>
+        </th>
+        <th>
+            <label>Địa chỉ cơ sở</label>
+        </th>
+        <th>
+            <label>Điện thoại văn phòng</label>
+        </th>
+        <th>
+            <label>Điện thoại cơ sở</label>
+        </th>
+        <th>
+            <label>Mã QLCTNH</label>
+        </th>
+        <th>
+            <label>Tỉnh thành</label>
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Ten_KH
+        </td>
+        <td>
+            @item.Diachi_VP
+        </td>
+        <td>
+            @item.Diachi_CS
+        </td>
+        <td>
+            @item.Dienthoaivp
+        </td>
+        <td>
+            @item.Dienthoaics
+        </td>
+        <td>
+            @item.MS_QLCTNH
+        </td>
+        <td>
+            @item.Tinhthanh.Ten
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Ma_KH }) 
+        </td>
+        <td>    
+            @Html.ActionLink("Delete", "Delete", new { id=item.Ma_KH })
+        </td>
+    </tr>
+}
+
+</table>*@

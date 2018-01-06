@@ -1,0 +1,53 @@
+﻿@model IEnumerable<QLChatThai.Models.QLCTModel.Nhanvien>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            <label>Họ và tên</label>
+        </th>
+        <th>
+            <label>Bộ phận</label>
+        </th>
+        <th>
+            <label>Công việc</label>
+        </th>
+        <th>
+            <label>Trạng thái</label>
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bophan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Congviec)
+        </td>
+        <td>
+            @(item.activated ? "OK" : "No")
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.manv.Trim()}) 
+        </td>
+        <td>    
+            @Html.ActionLink("Delete", "Delete", new { id=item.manv.Trim() })
+        </td>
+    </tr>
+}
+
+</table>

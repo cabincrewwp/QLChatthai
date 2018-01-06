@@ -1,0 +1,76 @@
+﻿@model QLChatThai.Models.QLCTModel.CTNHap
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa mục vật tư sổ sách</h2>
+
+<h3>Chắc chắn muốn xóa mục này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Chất thải</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenct)
+        </dd>
+        <dt>
+            <label>Mã QLCT</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model=>model.DM_CT.Ma_CT)
+        </dd>
+        <dt>
+            <label>Đơn vị tính</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dvt)
+        </dd>
+
+        <dt>
+            <label>Số lượng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slthuc)
+        </dd>
+
+        <dt>
+            <label>Đơn giá</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongianhap)
+        </dd>
+
+        <dt>
+            <label>Trạng thái</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+
+        <dt>
+            <label>Phương pháp xử lý</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Xuly.phuongphap)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+           @Html.ActionLink("Back", "Details", "Nhap", new { id = @ViewBag.sophieu }, null)
+        </div>
+    }
+</div>

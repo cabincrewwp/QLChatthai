@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QLChatThai.Models.QLCTModel.DM_CT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh mục chất thải</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            <label>Mã chất thải</label>
+        </th>
+        <th>
+            <label>Tên chất thải</label>
+        </th>
+        <th>
+            <label>Mã EC</label>
+        </th>
+        <th>
+            <label>Mã Basel A</label>
+        </th>
+        <th>
+            <label> Mã Basel Y</label>
+        </th>
+        
+        <th>
+            <label>Tính chất nguy hại</label>
+        </th>
+        <th>
+            <label>Trạng thái tồn tại</label>
+        </th>
+        <th>
+            <label>Ngưỡng nguy hại</label>
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Ma_CT
+        </td>
+        <td align="left">
+            @item.Ten_CT
+        </td>
+        <td>
+            @item.Ma_EC
+        </td>
+        <td>
+            @item.Ma_BaselA
+        </td>
+        <td>
+            @item.Ma_BaselY
+        </td>
+        
+        <td>
+            @item.TC_Nguyhai
+        </td>
+        <td>
+            @item.Trangthai_tontai
+        </td>
+        <td>
+            @item.Nguong_nguyhai
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idct })
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.idct})
+        </td>
+    </tr>
+}
+
+</table>

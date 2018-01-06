@@ -1,0 +1,80 @@
+﻿@model QLChatThai.Models.QLCTModel.DM_CT
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa chất thải</h2>
+
+<h3>Chắc chắn muốn xóa chất thải này?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Tên chất thải</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_CT)
+        </dd>
+
+        <dt>
+            <label>Mã EC</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ma_EC)
+        </dd>
+
+        <dt>
+            <label>Mã Basel A</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ma_BaselA)
+        </dd>
+
+        <dt>
+            <label>Mã Basel Y</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ma_BaselY)
+        </dd>
+
+        <dt>
+            <label>Tính chất nguy hại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TC_Nguyhai)
+        </dd>
+
+        <dt>
+            <label>Trạng thái tồn tại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trangthai_tontai)
+        </dd>
+
+        <dt>
+            <label>Ngưỡng nguy hại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nguong_nguyhai)
+        </dd>
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

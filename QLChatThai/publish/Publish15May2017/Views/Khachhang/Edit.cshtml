@@ -1,0 +1,69 @@
+﻿@model QLChatThai.Models.QLCTModel.Khachhang
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Chỉnh sửa thông tin khách hàng</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @*@Html.ValidationSummary(true)*@
+       
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Mã khách hàng</label>
+                @Html.TextBoxFor(m => m.Code_KH, new { @class = "form-control",ReadOnly=true })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tên khách hàng</label>
+                @Html.TextBoxFor(m => m.Ten_KH, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Mã QLCTNH</label>
+                @Html.TextBoxFor(m => m.MS_QLCTNH, new { @class = "form-control" })
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Địa chỉ văn phòng</label>
+                @Html.TextBoxFor(m => m.Diachi_VP, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Địa chỉ cơ sở</label>
+                @Html.TextBoxFor(m => m.Diachi_CS, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tỉnh thành</label>
+                @Html.DropDownList("Ma_tinh", null, new { @class = "form-control" })
+            </div>          
+                        
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Điện thoại văn phòng</label>
+                @Html.TextBoxFor(m => m.Dienthoaivp, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Điện thoại cơ sở</label>
+                @Html.TextBoxFor(m => m.Dienthoaics, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

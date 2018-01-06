@@ -1,0 +1,90 @@
+﻿@model QLChatThai.Models.QLCTModel.Khachhang
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Thêm mới khách hàng</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+        
+        <div class="row">
+            <div class="form-group col-sm-4 Code_KH">
+                <label>Mã khách hàng</label>
+                @Html.TextBoxFor(m => m.Code_KH, new { @class = "form-control", style = "text-transform:uppercase" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tên khách hàng</label>
+                @Html.TextBoxFor(m => m.Ten_KH, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Mã QLCTNH</label>
+                @Html.TextBoxFor(m => m.MS_QLCTNH, new { @class = "form-control" })
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Địa chỉ văn phòng</label>
+                @Html.TextBoxFor(m => m.Diachi_VP, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Địa chỉ cơ sở</label>
+                @Html.TextBoxFor(m => m.Diachi_CS, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Tỉnh thành</label>
+                @Html.DropDownList("Ma_tinh", null, new { @class = "form-control" })
+            </div>           
+                        
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Điện thoại văn phòng</label>
+                @Html.TextBoxFor(m => m.Dienthoaivp, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Điện thoại cơ sở</label>
+                @Html.TextBoxFor(m => m.Dienthoaics, new { @class = "form-control" })
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@*<script>
+    $(document).ready(function () {
+        $("#Code_KH").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Khachhang/GetCodeKH",
+                    type: "POST",
+                    dataType: "Json",
+                    data: { key: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.Code_KH, value: item.Code_KH };
+                        }))
+                    }
+                })
+            },
+            message: { noResults: "", results: "" }
+        });
+    })
+</script>*@

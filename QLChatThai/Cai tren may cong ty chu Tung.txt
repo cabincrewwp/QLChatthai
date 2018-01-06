@@ -1,0 +1,4 @@
+SQL Server
+Instance: CGQDATABASE
+user:sa
+pass:sql@2014

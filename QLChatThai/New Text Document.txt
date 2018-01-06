@@ -1,0 +1,16 @@
+Ngay lam can cu thong ke la ngay nhap
+1. Thuc te: 
+	- Them don gia
+	- Luu kho: TP.HCM/Binh Phuoc
+	- Them chuc nang chuyen du lieu so sach sang thuc te
+2. Xu?t:
+	- Chuyen kho: Xuat kho nay + Nhap kho kia
+	- Dien giai xuat: Chuyen kho/Xu ly/Ban
+	- Xuat phan thuc te.
+3. Bao cao:
+	- Xuat nhap ton
+	- Thong ke hang nhap/xuat trong khoang thoi gian
+	- Thong ke theo khach hang theo thoi gian
+	- Thong ke theo mat hang.
+4. Them vao DM Ma phe lieu  doi voi cac mat hang them moi vao
+	

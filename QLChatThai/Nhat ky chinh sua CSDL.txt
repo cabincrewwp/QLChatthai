@@ -1,0 +1,6 @@
+Ngay 21/05/2017:
+	Them field tuxuly bit vao DM_CT
+	Mo rong field Ma_EC tu 20->50
+	Mo rong field Ma_BaselA tu 20->100
+ 	Mo rong field Ma_BaselY tu 20->50
+	Mo rong field Ten_CT tu 150->300

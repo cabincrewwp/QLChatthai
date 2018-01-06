@@ -1,0 +1,76 @@
+﻿@model QLChatThai.Models.QLCTModel.Nhap
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa phiếu nhập</h2>
+
+<h3>Chắc chắn xóa phiếu nhập này?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Số chứng từ</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sochungtu)
+        </dd>
+
+        <dt>
+            <label>Khách hàng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khachhang.Ten_KH)
+        </dd>
+
+        <dt>
+            <label>Ngày nhập</label>
+        </dt>
+
+        <dd>
+            
+            @*@Html.DisplayFor(model=>model.ngaynhap)*@
+            @Html.FormatValue(Model.ngaynhap, "{0:dd/MM/yyyy}")
+        </dd>
+
+        <dt>
+            <label>Ngày nhận</label>
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model =>model.ngaynhan)*@
+            @Html.FormatValue(Model.ngaynhan, "{0:dd/MM/yyyy}")
+        </dd>
+
+        <dt>
+            <label>Nhân viên nhận</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhanvien.fullname)
+        </dd>
+
+        <dt>
+            <Label>Kho</Label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DMKHO.Tenkho)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

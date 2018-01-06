@@ -1,0 +1,70 @@
+﻿
+@model List<QLChatThai.Models.QLCTModel.dsnhap>
+<style type="text/css">
+    .webgrid-table {
+        font-family: Arial,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        width: auto;
+        display: table;
+        border-collapse: collapse;
+        border: solid 1px #C5C5C5;
+        background-color: white;
+    }
+
+        .webgrid-table th, td {
+            border: solid 1px #C5C5C5;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header, webgrid-header a {
+        background-color: aqua;
+        color: #ffffff;
+        text-align: left;
+        text-decoration: none;
+    }
+    .khachang{
+        text-align:left;
+    }
+    .so{
+        text-align:right;
+    }
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: azure;
+        padding: 3px 7px 2px;
+    }
+</style>
+
+@{
+    ViewBag.Title = "Phiếu nhập";
+    var grid = new WebGrid(source: Model,canSort:false,canPage:true,rowsPerPage:20);
+}
+
+<h2>Danh sách phiếu nhập</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<div>
+    @grid.GetHtml(
+    columns: grid.Columns(grid.Column(header: "STT", format: item => item.WebGrid.Rows.IndexOf(item) + 1),
+                    grid.Column(columnName: "Sochungtu", header: "Số biên bản", style: "so"),
+            grid.Column(columnName: "khachhang", header: "Khách hàng",style:"khachang"),
+            grid.Column(columnName: "ngaynhan", header: "Ngày nhận", format: (item) => string.Format("{0:dd/MM/yyyy}", item.ngaynhan)),
+            grid.Column(columnName: "ngaynhap", header: "Ngày nhập", format: (item) => string.Format("{0:dd/MM/yyyy}", item.ngaynhap)),
+            grid.Column(columnName: "Soxe", header: "Chuyên chở"),
+            grid.Column(columnName: "nguoinhan", header: "Người nhận"),
+            grid.Column(header: "", canSort: false, style: "action",
+                format: @<text>
+                @Html.Raw("<a data-modal='' href='/Nhap/Edit/" + item.sophieu + "'> <span class='glyphicon glyphicon-edit'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/Nhap/Delete/" + item.sophieu + "'> <span class='glyphicon glyphicon-trash'> </span> </a>")
+                </text>)
+                                 ));
+</div>

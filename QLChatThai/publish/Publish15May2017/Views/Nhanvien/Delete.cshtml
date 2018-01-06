@@ -1,0 +1,48 @@
+﻿@model QLChatThai.Models.QLCTModel.Nhanvien
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa nhân viên</h2>
+
+<h3>Chắc chắn xóa nhân viên này?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Họ và Tên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fullname)
+        </dd>
+
+        <dt>
+            <label>Bộ phận</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bophan)
+        </dd>
+
+        <dt>
+            <label>Công việc</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Congviec)
+        </dd>
+                
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

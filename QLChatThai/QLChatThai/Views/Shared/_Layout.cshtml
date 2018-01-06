@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công ty TNHH Môi trường Cao Gia Quý</title>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    
+    <style>
+        .validation-summary-errors ul {
+            list-style: none;
+            padding: 5px;
+            margin: 0px;
+            background-color: yellow;
+            color: red;
+        }
+        h1{
+            text-align:center;
+            font-weight:bold;
+            color:darkturquoise;
+        }
+        h2{
+            text-align:center;
+            font-weight:bold;
+            color:darkturquoise;
+        }
+        h3 {
+            text-align: center;
+            font-weight:bold;
+            margin-top:5px;
+            margin-bottom:5px;
+            color:darkturquoise;
+        }
+        th,td {
+            text-align:center;
+        }
+        th {
+            font-weight:bold;
+        }
+        td:nth-child(2){
+            text-align:left;
+        }
+        #logo{
+            margin-left:100px;
+            margin-top:0px;
+        }
+        
+    </style>
+    @*dateFormat: 'dd/mm/yy',*@ 
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $(".nn-date").datepicker({
+                    dateFormat:'dd/mm/yy'
+                });
+            });
+            $("#Code_KH").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Khachhang/GetCodeKH",
+                        type: "POST",
+                        dataType: "Json",
+                        data: { key: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.Code_KH, value: item.Code_KH };
+                            }))
+                        }
+                    })
+                },
+                message: { noResults: "", results: "" }
+            });
+        }) //Scope 1
+    </script>
+    @*<script>
+        $(function () {
+            $("input.nn-date").datepicker({
+                dateFormat: "dd/mm/yy",
+                beforeShow: function () {
+                    $(".ui-datepicker").css('font-size', 14)
+                }
+            });
+        });
+    </script>*@
+</head>
+<body>
+    <div class="container top-left">
+        <header class="nn-header row" style="height: 150px;">
+            <div>
+                <div id="logo" style="float:left;">
+                    <img src="~/Image/1.JPG" height="130" width="130" />
+                </div>
+                <div>
+                    
+                    <section class="contact">
+                        <h1>CÔNG TY TNHH MÔI TRƯỜNG CAO GIA QUÝ</h1>
+                        <p>
+                        <h3>Ấp Phước Tân, Xã Tân Phước, Huyện Đồng Phú, Tỉnh Bình Phước</h3>                           
+                        </p>
+                        <h3>Điện thoại: 0906924499</h3>
+                    </section>
+                    
+                </div>
+            </div>
+                          
+            @*<div class="nn-company">
+                <a href="index.html">
+                    <img width="150" height="150" class="img-responsive2"
+                         src="~/Image/1.jpg"><h1>Công ty TNHH Môi trường Cao Gia Quý</h1>
+                </a>
+                  
+            </div>*@
+            
+        </header>
+
+        <div class="navbar navbar-default row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<a href="/" class="navbar-brand">Trang chủ</a>*@
+            </div>
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_Menu")
+            </div>
+        </div>
+
+        <div class="nn-sheet row">
+            <article class="nn-body">
+                @RenderBody()
+            </article>
+        </div>
+
+        <footer class="panel panel-default row">
+            <div class="panel-heading">
+                <p class="text-center">Cao Gia Quý &copy; 2017. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+<noembed> 

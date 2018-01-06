@@ -1,0 +1,59 @@
+﻿@model QLChatThai.Models.QLCTModel.Nhanvien
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Thêm nhân viên</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @*@Html.ValidationSummary(true)*@
+        
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Mã nhân viên</label>
+                @Html.TextBoxFor(model => model.manv, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.manv)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Họ và tên</label>
+                @Html.TextBoxFor(model => model.fullname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.fullname)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Bộ phận</label>
+                @Html.TextBoxFor(model => model.Bophan, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Bophan)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Công việc</label>
+                @Html.TextBoxFor(model => model.Congviec, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Congviec)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Activated ?</label>
+                <div class="form-control">
+                    <label>@Html.RadioButtonFor(model => model.activated, true) OK</label>
+                    <label>@Html.RadioButtonFor(model => model.activated, false) No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

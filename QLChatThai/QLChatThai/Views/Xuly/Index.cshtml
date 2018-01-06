@@ -1,0 +1,42 @@
+﻿@model IEnumerable<QLChatThai.Models.QLCTModel.Xuly>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh mục phương pháp xử lý</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            <label>Phương pháp xử lý</label>
+        </th>
+        <th>
+            <label>Mô tả</label>
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @item.phuongphap
+        </td>
+        <td>
+            @item.mota
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idxl })
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.idxl })
+        </td>
+    </tr>
+}
+
+</table>

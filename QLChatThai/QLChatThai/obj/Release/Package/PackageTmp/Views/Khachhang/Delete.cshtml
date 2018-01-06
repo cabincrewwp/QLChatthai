@@ -1,0 +1,74 @@
+﻿@model QLChatThai.Models.QLCTModel.Khachhang
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xóa thông tin khách hàng</h2>
+
+<h3>Chắc chắn xóa thông tin khách hàng này?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Tên khách hàng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_KH)
+        </dd>
+
+        <dt>
+            <label>Địa chỉ văn phòng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diachi_VP)
+        </dd>
+
+        <dt>
+            <label>Địa chỉ cơ sở</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diachi_CS)
+        </dd>
+
+        <dt>
+            <label>Điện thoại liên lạc</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dienthoaivp)
+            <hr />
+            @Html.DisplayFor(model => model.Dienthoaics)
+        </dd>
+
+        <dt>
+            <label>Mã QLCTNH</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MS_QLCTNH)
+        </dd>
+
+        <dt>
+            <label>Tỉnh/thành phố</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tinhthanh.Ten)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

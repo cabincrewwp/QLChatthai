@@ -1,0 +1,67 @@
+﻿@model QLChatThai.Models.QLCTModel.CTNHap
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Chi tiết nhập sổ sách</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.idctnhap)
+        @Html.HiddenFor(model => model.Sophieu, new { @Value=@ViewBag.sophieu}) @*Chú ý chữ Value chứ V viets hoa*@
+        @*@Html.HiddenFor(model => model.loai, new {@Value=@ViewBag.loai})*@
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Chất thải</label>
+                @Html.TextBoxFor(model => model.Tenct, new { @class="form-control"})
+                @Html.ValidationMessageFor(model=>model.Tenct)
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Mã CTNH</label>
+                @Html.DropDownList("idct", null, new {@class="form-control"})
+                @Html.ValidationMessageFor(model=>model.idct)
+            </div>            
+             <div class="form-group col-sm-4">
+                <label>Đơn vị tính</label>
+                @Html.DropDownList("DVT", null, new { @class = "form-control" })
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label>Số lượng</label>
+                @Html.TextBoxFor(model => model.slthuc, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Đơn giá nhập</label>
+                @Html.TextBoxFor(model => model.Dongianhap, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Trạng thái tồn tại</label>
+                @Html.TextBoxFor(model => model.trangthai, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="form-group col-sm-4">
+                <label>Phương pháp xử lý</label>
+                @Html.DropDownList("idxl",null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back", "Details", "Nhap", new { id = @ViewBag.sophieu }, null)
+</div>

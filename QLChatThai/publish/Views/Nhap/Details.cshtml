@@ -1,0 +1,186 @@
+﻿@model  List<QLChatThai.Models.QLCTModel.NhapDetail>
+
+@{
+    ViewBag.Title = "Details";
+    var grd = new WebGrid(source: Model, canSort: false, canPage: true, rowsPerPage: 20);
+}
+
+<h2>PHIẾU NHẬP</h2>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label>Số biên bản:</label>
+            <strong>
+                @ViewBag.Nhap.Sochungtu
+            </strong>
+            @*@Html.TextBoxFor(model => model.Sochungtu, new { @class = "form-control", @readonly=true })
+            @Html.ValidationMessageFor(model => model.Sochungtu)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Khách hàng:</label>
+            <strong>
+                @ViewBag.Nhap.Ten_KH
+            </strong>
+            @*@Html.DropDownList("Code_KH", null, new { @class = "form-control", @readonly=true })
+            @Html.ValidationMessageFor(model => model.Code_KH)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Nhập kho:</label>
+            <strong>
+                @ViewBag.Nhap.Tenkho
+            </strong>        
+            @*@Html.DropDownList("Makho", null, new { @class = "form-control", @readonly=true })
+            @Html.ValidationMessageFor(model => model.Makho)*@
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label>Ngày nhận:</label>
+            <strong>
+                @Html.FormatValue(ViewBag.Nhap.ngaynhan,"{0:dd/MM/yyyy}")
+            </strong>
+            @*@Html.TextBoxFor(model => model.ngaynhan, "{0:dd/MM/yyyy}", new { @class = "form-control nn-date", @readonly = true })
+            @Html.ValidationMessageFor(model => model.ngaynhan)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Ngày nhập:</label>
+            <strong>
+                @Html.FormatValue(ViewBag.Nhap.ngaynhap, "{0:dd/MM/yyyy}")
+            </strong>
+            @*@Html.TextBoxFor(model => model.ngaynhap, "{0:dd/MM/yyyy}", new { @class = "form-control nn-date", @readonly = true })
+            @Html.ValidationMessageFor(model => model.ngaynhap)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Xe vận chuyển:</label>
+            <strong>
+                @ViewBag.Nhap.Soxe
+            </strong>
+            @*@Html.DropDownList("Soxe", null, new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.Soxe)*@
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label>Nhân viên nhận:</label>
+            <strong>
+                @ViewBag.Nhap.fullname
+            </strong>
+            @*@Html.DropDownList("manv", null, new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.manv)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Nhân viên kinh doanh 1:</label>
+            <strong>
+                @ViewBag.Nhap.NV_KDMua1
+            </strong>
+            @*@Html.DropDownList("NV_KDMua1", null, "", new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.NV_KDMua1)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Nhân viên kinh doanh 2:</label>
+            <strong>
+                @ViewBag.Nhap.NV_KDMua2
+            </strong>
+            @*@Html.DropDownList("NV_KDMua2", null, "", new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.NV_KDMua2)*@
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label>Nhân viên kinh doanh 3:</label>
+            <strong>
+                @ViewBag.Nhap.NV_KDMua3
+            </strong>
+            @*@Html.DropDownList("NV_KDMua3", null, "", new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.NV_KDMua3)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Người giới thiệu 1:</label>
+            <strong>
+                @ViewBag.Nhap.NV_Gioithieu1
+            </strong>
+            @*@Html.TextBoxFor(model => model.NV_Gioithieu1, new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.NV_Gioithieu1)*@
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Người giới thiệu 2:</label>
+            <strong>
+                @ViewBag.Nhap.NV_Gioithieu2
+            </strong>
+            @*@Html.TextBoxFor(model => model.NV_Gioithieu2, new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.NV_Gioithieu2)*@
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label>Người giới thiệu 3:</label>
+            <strong>
+                @ViewBag.Nhap.NV_Gioithieu3
+            </strong>
+            @*@Html.TextBoxFor(model => model.NV_Gioithieu3, new { @class = "form-control", @readonly = true })
+            @Html.ValidationMessageFor(model => model.NV_Gioithieu3)*@
+        </div>
+        <div class="form-group col-sm-8">
+            <label>Ghi chú</label>
+            @ViewBag.Nhap.Ghichu
+            @*@Html.TextAreaFor(model => model.Ghichu, new { @class = "form-control", rows = 3, @readonly = true })
+            @Html.ValidationMessageFor(model => model.Ghichu)*@
+        </div>
+
+    </div>
+</div>
+<h3>Chi tiết phiếu nhập</h3>
+@Html.ActionLink("Thêm mới", "Create", "CTNhap", new {id=ViewBag.Nhap.sophieu},null)
+@grd.GetHtml(
+    columns: grd.Columns(
+                    grd.Column(header: "STT", format: item => item.WebGrid.Rows.IndexOf(item) + 1),
+                    grd.Column(columnName: "tenct", header: "Chất thải"),
+                    grd.Column(columnName: "dvt", header: "Đơn vị tính", style: "khachang"),
+            grd.Column(columnName: "slthuc", header: "Số lượng", style: "khachang"),
+            grd.Column(columnName: "trangthai", header: "Trạng thái tồn tại"),
+            grd.Column(columnName: "phuongphap", header: "Phương pháp xử lý"),
+            grd.Column(header: "", canSort: false, style: "action",
+                format: @<text>
+                @Html.Raw("<a data-modal='' href='/CTNhap/Edit/" + item.idctnhap + "'> <span class='glyphicon glyphicon-edit'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/CTNhap/Delete/" + item.idctnhap + "'> <span class='glyphicon glyphicon-trash'> </span> </a>")
+
+                </text>)
+                                                                         ));
+
+@*<table class="table table-hover">
+    <tr>
+        <th>Chất thải</th>
+        <th>Mã QLCT</th>
+        <th>DVT</th>
+        <th>Số lượng</th>
+        <th>Đơn giá</th>
+        <th>Trạng thái</th>
+        <th>Phương pháp xử lý</th>
+        <th></th>
+    </tr>
+
+    @foreach (var p in ViewBag.listct)
+    {
+        <tr>
+            <td>@p.Tenct</td>
+            <td>@p.DM_CT.Ma_CT</td>
+            <td>@p.dvt</td>
+            <td>@p.slthuc</td>
+            <td>@p.Dongianhap</td>
+            <td>@p.trangthai</td>
+            <td>@p.Xuly.phuongphap</td>
+            <td>@Html.ActionLink("Edit", "Edit", "CTNhap", new { id = @p.idctnhap },null)|@Html.ActionLink("Delete", "Delete", "CTNhap", new { id = @p.idctnhap },null)</td>
+        </tr>
+    }
+</table>*@
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

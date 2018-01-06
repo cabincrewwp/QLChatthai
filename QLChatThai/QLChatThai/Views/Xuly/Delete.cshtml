@@ -1,0 +1,40 @@
+﻿@model QLChatThai.Models.QLCTModel.Xuly
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xoa phương pháp xử lý</h2>
+
+<h3>Chắc chắn muốn xóa phương pháp xử lý này?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Phương pháp</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model=>model.phuongphap)
+        </dd>
+
+        <dt>
+            <label>Mô tả</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
